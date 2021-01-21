@@ -11,6 +11,9 @@ let urlSchema = new mongoose.Schema({
   urlCode: {
     type: String,
   },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   numberOfClick: {
     type: Number,
     default: 0,

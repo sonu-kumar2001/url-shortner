@@ -4,12 +4,18 @@ const isValidUrl = require("valid-url");
 const Url = require("../models/Url");
 const urlCodeGenerator = require("shortid");
 
-router.get("/url/:code", async (req, res, next) => {
+router.get("/:code", async (req, res, next) => {
   const urlCode = req.params.code;
   try {
     if (urlCodeGenerator.isValid(urlCode)) {
       let url = await Url.findOne({ urlCode: urlCode });
       if (url) {
+        await Url.findByIdAndUpdate(
+          url.id,
+          { $inc: { numberOfClick: 1 } },
+          { new: true }
+        );
+        console.log(url);
         res.redirect(url.urlLong);
       } else {
         res.send("invalid Url");
@@ -21,14 +27,15 @@ router.get("/url/:code", async (req, res, next) => {
     next(err);
   }
 });
-router.post("/url", async (req, res, next) => {
+
+router.post("/", async (req, res, next) => {
   let longUrl = req.body.url;
   try {
     if (isValidUrl.isUri(longUrl)) {
       let urlCode = urlCodeGenerator.generate();
       let url = await Url.create({
         urlLong: longUrl,
-        urlShort: `http://localhost:3000/api/url/${urlCode}`,
+        urlShort: `http://localhost:3000/${urlCode}`,
         urlCode: urlCode,
       });
       res.send(url);
