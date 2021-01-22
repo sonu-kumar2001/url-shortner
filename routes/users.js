@@ -44,16 +44,21 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
-
+// dashboard
 router.get("/dashboard", auth.currentUserLoggedIn, async (req, res, next) => {
   try {
     let user = await User.findById(req.user.userId);
     let urls = await Url.find({ author: req.user.userId });
-    console.log(urls);
     res.render("userDashboard", { user });
   } catch (error) {
     next(error);
   }
+});
+
+//logout
+router.get("/logout", async (req, res, next) => {
+  req.session.destroy();
+  res.redirect("/");
 });
 
 module.exports = router;

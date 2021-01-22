@@ -134,6 +134,10 @@ header {
     font-size: 1.3rem;
     font-weight: 600;
 }
+.list-items a {
+    display: inline-block;
+    color: white;
+}
 .list-items{
     text-transform: capitalize;
     font-size: 1.3rem;
