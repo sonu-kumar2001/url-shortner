@@ -1,0 +1,133 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* general */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+/* flex */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.col-1-2 {
+    flex-basis: 46%;
+}
+/* first-section */
+.first-section {
+    background-image: linear-gradient(to right, #f125257e, #f125257e), url("../../assets/images/bg-intro-desktop.png");
+    height: 100vh;
+    padding: 40px 0;
+}
+h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+}
+p {
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.4;
+    margin: 15px 0;
+}
+/* form */
+.top {
+    background-color: #5D54A3;
+    color: white;
+    padding: 5px 0;
+    border-radius: 10px;
+    box-shadow: 0 15px 7px -7px #D16973;
+}
+.top p strong {
+    font-weight: 600;
+}
+.top p {
+    text-align: center;
+}
+fieldset input,button,p {
+    width: 80%;
+}
+fieldset {
+    text-align: center;
+}
+fieldset p {
+  display: inline-block;
+  color: #868585;
+}
+fieldset p strong {
+    color: red;
+    font-weight: 600;
+}
+.form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 30px 0;
+    box-shadow: 0 15px 7px -7px #D16973;
+}
+input {
+    padding: 20px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 2px solid #868585;
+    font-weight: 600;
+}
+button {
+    padding: 20px 20px;
+    border: 0;
+    background-color: #37CC8A;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-top: 10px;
+}

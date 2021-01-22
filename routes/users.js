@@ -4,30 +4,37 @@ let User = require("../models/User");
 let token = require("../modules/config");
 let {compare} = require("bcrypt");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/* register page */
+router.get("/register",(req,res,next)=> {
+  res.render("registerForm");
+});
+//login page
+router.get("/login",(req,res,next)=> {
+  res.render("loginForm");
 });
 
 // registering user
-router.post("/", async (req,res,next)=> {
+router.post("/register", async (req,res,next)=> {
   try {
-    let user = await User.create(req.body.user);
+    let user = await User.create(req.body);
     let createdToken = await token.generateJwt(user);
-    res.status(201).json({user:{... userInfo(user), createdToken}});
+    req.session.userId = createdToken;
+    res.redirect("/");
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });
 // login user
 router.post("/login", async(req,res,next)=> {
   try {
-    let {email, password} = req.body.user;
+    let {email, password} = req.body;
     let user =  await User.findOne({email});
     let result = await compare(password,user.password);
     if(user && result) {
       let createdToken = await token.generateJwt(user);
-      res.json({user:{... userInfo(user), createdToken}});
+      req.session.userId = createdToken;
+      res.redirect('/')
     }
   } catch (error) {
     next(error);

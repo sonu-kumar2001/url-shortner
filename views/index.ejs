@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="container">
+        <nav class="flex">
+            <div class="logo">
+                <h3><a href="#">Logo</a></h3>
+            </div>
+            <ul class="flex">
+                <li class="list-items"><a href="/users/login">Login</a></li>
+                <li class="list-items"><a href="/users/register">Signup</a></li>
+                <li class="list-items"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="grid col-3 col-gap-2 ">
+                    <div class="hero-details grid-self-center">
+                        <h1>Short links, big results</h1>
+                        <h3>A URL Shortner buid with powerful tools to help you grow and protect your brand</h3>
+                        <a class="btn" href="#">Get Started</a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img src="/images/3874341.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="url-shortner">
+            <div class="sub-url ">
+                <form class="container" action="#">
+                    <input class="url-input" type="text" name="url">
+                    <button class="url-button" type="submit">Shorten</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="shortner-details">
+            <h2 class="text-center">The link shortner that has your brand's back</h2>
+            <p class="text-center">Your brand wasn't built to be hidden. Help it stand out with branded links that drive 34% more clicks</p>
+            <div class="container grid col-3 col-gap-2-5">
+                <div class="first-sub-details grid-self-center">
+                    <img src="/images/Wavy_Bus-14_Single-08.jpg" alt="">
+                    <h3>Inspire trust</h3>
+                    <p>With more clicks comes increased brand recognition and consumer trust in your communications—which in turn inspires even more engagement with your links. (It’s a wonderful cycle.)</p>
+                </div>
+                <div class="first-sub-details grid-self-center">
+                    <img src="/images/Wavy_Bus-28_Single-01.jpg" alt="">
+                    <h3>Gain control</h3>
+                    <p>On top of better deliverability and click-through, rich link-level data gives you crucial insight into your link engagement so your team can make smarter decisions around its content and communications.</p>
+                </div>
+                <div class="first-sub-details grid-self-center">
+                    <img src="/images/5875.jpg" alt="">
+                    <h3>Boost result</h3>
+                    <p>Take credit for your content and learn more about how it’s consumed by enabling auto-branding—a feature that ensures your brand remains in any link someone shortens pointing to your website.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="get-started">
+            <div class="container">
+                <h2 class="text-center">More than a link shortner</h2>
+                <div class="flex-center">
+                    <a class="btn" href="#">Get started</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <ul class="nav-foot">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Term of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <p class="text-center footer-para">All rights reserved</p>
+        </div>
+    </footer>
+</body>
 </html>
