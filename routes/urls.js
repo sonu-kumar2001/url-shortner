@@ -30,7 +30,8 @@ router.get("/:code", async (req, res, next) => {
 
 router.post("/", auth.currentUserLoggedIn, async (req, res, next) => {
   let longUrl = req.body.url;
-  let author = req.user ? req.user.id : null;
+
+  let author = req.user ? req.user.userID : null;
   try {
     if (isValidUrl.isUri(longUrl)) {
       let urlCode = urlCodeGenerator.generate();
