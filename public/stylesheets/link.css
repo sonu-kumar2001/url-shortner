@@ -1,0 +1,10 @@
+.link {
+  background-color: #f2f2f2;
+  text-align: center;
+  width: 60%;
+  margin: 0px auto;
+}
+.link a {
+  color: blue;
+  padding: 25px;
+}

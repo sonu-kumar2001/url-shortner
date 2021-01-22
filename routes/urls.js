@@ -3,6 +3,7 @@ const router = express.Router();
 const isValidUrl = require("valid-url");
 const Url = require("../models/Url");
 const urlCodeGenerator = require("shortid");
+const auth = require("../modules/config");
 
 router.get("/:code", async (req, res, next) => {
   const urlCode = req.params.code;
@@ -27,7 +28,7 @@ router.get("/:code", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", auth.currentUserLoggedIn, async (req, res, next) => {
   let longUrl = req.body.url;
   let author = req.user ? req.user.id : null;
   try {
@@ -39,7 +40,8 @@ router.post("/", async (req, res, next) => {
         urlCode: urlCode,
         author: author,
       });
-      res.status.send(url);
+      console.log(url);
+      res.status(200).render("link", { url });
     } else {
       next("Url Is not Valid");
     }
