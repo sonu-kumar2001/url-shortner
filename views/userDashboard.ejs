@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/user.css">
+    <link rel="stylesheet" href="/stylesheets/style.css"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="container flex">
+            <div class="logo">
+                <h3><a href="#">Logo</a></h3>
+            </div>
+            <ul>
+                <li class="list-items"><%= user.username%></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="details">
+            <div class="container">
+                <div class="grid col-2 col-gap-2">
+                    <div class="links-details">
+                        <h3>Your links</h3>
+                         <p>sonurocckker@gmail.com</p>
+                        <h3>No.of clicks</h3>
+                        <p>10</p>
+                    </div>
+                    
+                        <div class="url-shortner">
+                            <div class="sub-url ">
+                                <form class="container" action="#" method="POST">
+                                    <input class="url-input" type="text" name="url">
+                                    <button class="url-button" type="submit">Shorten</button>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

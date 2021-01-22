@@ -3,6 +3,8 @@ var router = express.Router();
 let User = require("../models/User");
 let token = require("../modules/config");
 let {compare} = require("bcrypt");
+let auth = require("../modules/config");
+const { currentUserLoggedIn } = require('../modules/config');
 
 /* register page */
 router.get("/register",(req,res,next)=> {
@@ -19,7 +21,7 @@ router.post("/register", async (req,res,next)=> {
     let user = await User.create(req.body);
     let createdToken = await token.generateJwt(user);
     req.session.userId = createdToken;
-    res.redirect("/");
+    res.redirect("/users/dashboard");
   } catch (error) {
     console.log(error);
     next(error);
@@ -34,19 +36,23 @@ router.post("/login", async(req,res,next)=> {
     if(user && result) {
       let createdToken = await token.generateJwt(user);
       req.session.userId = createdToken;
-      res.redirect('/')
+      res.redirect('/users/dashboard');
     }
   } catch (error) {
     next(error);
   }
 })
 
-function userInfo(user) {
-  return {
-    email: user.email,
-    username: user.username,
+router.get("/dashboard",auth.currentUserLoggedIn ,async(req,res,next)=>{
+  try {
+    let user = await User.findById(req.user.userId);
+    console.log(req.user);
+    res.render("userDashboard",{user});
+  } catch (error) {
+    console.log(error)
+    next(error);
   }
-}
+})
 
 
 module.exports = router;
