@@ -7,7 +7,8 @@ module.exports = {
         return token;
     },
     verifyToken : async (req,res,next)=> {
-        let token = req.headers.authorization;
+        let token = req.session.userId;
+        console.log(token);
         if(token) {
             try {
                 let payload = await jwt.verify(token,process.env.SECRET);
@@ -19,7 +20,7 @@ module.exports = {
         } else return res.status(401).json({err: "token required"});
     },
     currentUserLoggedIn : async (req,res,next)=> {
-        let token = req.headers.authorization;
+        let token = req.session.userId;
         if(token) {
             try {
                 let payload = await jwt.verify(token,process.env.SECRET);

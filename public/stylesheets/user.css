@@ -124,44 +124,25 @@ img {
     align-items: center;
 }
 /* header */
+header {
+    background-color: #172F41;
+}
 .logo h3 a {
     color: #eb5454;
 }
 .list-items {
-    margin-right: 1.6rem;
-}
-.list-items a {
     font-size: 1.3rem;
-    color: #252628;
+    font-weight: 600;
 }
-/* hero-section */
-.hero-details {
-    grid-column: 1 / span 2;
-}
-.hero-details h1 {
-    color: #252628;
-    font-size: 2.9rem;
-    font-weight: 700;
-}
-.hero-details h3 {
-    color: #56575B;
-    font-size: 1.4rem;
-    margin: 1rem 0 2rem 0;
-}
-.btn {
-    background-color: #eb5454;
+.list-items{
+    text-transform: capitalize;
+    font-size: 1.3rem;
     color: white;
-    padding:1.2rem 1.4rem;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-.hero-image img {
-    width: 500px;
 }
 /* url-section */
 .sub-url {
     background-color: #252628;
+    border-radius: 8px;
 }
 form {
     display: flex;
@@ -184,57 +165,17 @@ form {
     font-weight: 600;
     color: white;
 }
-/* details-section */
-.shortner-details {
-    padding: 4rem 0;
+.details {
+padding: 8rem 0;
 }
-.shortner-details h2 {
-    font-size: 2.2rem;
-    color: #252628;
-}
-.shortner-details p {
-    color: #56575B;
-    margin-top: 1rem;
-    line-height: 1.5rem;
-}
-.first-sub-details p {
-    font-size: 1.3rem;
-    color: #252628;
-}
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.4rem;
-}
-.get-started {
-    background-color: #252628;
-    padding: 2.5rem 0;
-}
-.get-started h2 {
+.links-details h3 {
+    margin-bottom: 1rem;
     color: white;
-    font-size: 2.3rem;
 }
-/* footer */
-footer {
-    padding-top: 1rem ;
-}
-.nav-foot {
-    display: flex;
-    justify-content: center;
-}
-.nav-foot a {
-    color:#252628;
-}
-.nav-foot li {
-    border-right: 1px solid #56575B;
-    margin-right: 10px;
-    padding-right: 10px;
-}
-.nav-foot li:last-child {
-    border: none;
-}
-.footer-para {
-    color: #252628;
+.links-details p {
     margin: 1rem 0;
+    color: white;
+}
+body {
+    background-color: #eb5454;
 }
