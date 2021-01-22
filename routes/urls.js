@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const isValidUrl = require("valid-url");
 const Url = require("../models/Url");
 const urlCodeGenerator = require("shortid");
@@ -15,10 +15,9 @@ router.get("/:code", async (req, res, next) => {
           { $inc: { numberOfClick: 1 } },
           { new: true }
         );
-        console.log(url);
-        res.redirect(url.urlLong);
+        res.status(200).redirect(url.urlLong);
       } else {
-        res.send("invalid Url");
+        next("Link Is Invalid");
       }
     } else {
       next("url is not valid");
@@ -30,6 +29,7 @@ router.get("/:code", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   let longUrl = req.body.url;
+  let author = req.user ? req.user.id : null;
   try {
     if (isValidUrl.isUri(longUrl)) {
       let urlCode = urlCodeGenerator.generate();
@@ -37,8 +37,9 @@ router.post("/", async (req, res, next) => {
         urlLong: longUrl,
         urlShort: `http://localhost:3000/${urlCode}`,
         urlCode: urlCode,
+        author: author,
       });
-      res.send(url);
+      res.status.send(url);
     } else {
       next("Url Is not Valid");
     }
