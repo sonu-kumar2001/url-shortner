@@ -42,7 +42,7 @@ router.post("/login", async(req,res,next)=> {
     next(error);
   }
 })
-
+// dashboard
 router.get("/dashboard",auth.currentUserLoggedIn ,async(req,res,next)=>{
   try {
     let user = await User.findById(req.user.userId);
@@ -53,6 +53,10 @@ router.get("/dashboard",auth.currentUserLoggedIn ,async(req,res,next)=>{
     next(error);
   }
 })
-
+//logout
+router.get("/logout",async(req,res,next)=> {
+  req.session.destroy();
+  res.redirect("/");
+})
 
 module.exports = router;
